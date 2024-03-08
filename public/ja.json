@@ -2,8 +2,23 @@
     "customers": [
         {
             "uuid": "8a9be9aa-63af-437d-bfb5-0b3c1e79d831",
-            "firstname": "qhbsas",
-            "lastname": "asdasd"
+            "firstname": "Jonas",
+            "lastname": "hoffman"
+        },
+        {
+            "uuid": "8a9be9aa-63af-437d-bfb5-0b3c1e79d831",
+            "firstname": "Peter",
+            "lastname": "Griffin"
+        },
+        {
+            "uuid": "8a9be9aa-63af-437d-bfb5-0b3c1e79d831",
+            "firstname": "Jürgen",
+            "lastname": "Darf"
+        },
+        {
+            "uuid": "8a9be9aa-63af-437d-bfb5-0b3c1e79d831",
+            "firstname": "Josef",
+            "lastname": "Götl"
         }
     ]
 }
