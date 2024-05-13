@@ -53,35 +53,10 @@ export default function EditCustomer() {
       .then(setData);
   }, []);
 
-  const onCellEditChange = (options) => (event) => {
-    options.editorCallback(event.target.value);
-  };
-  const cellEditor = (options) => {
-    return (
-      <InputText
-        type="text"
-        value={options.value}
-        onChange={(e) => options.editorCallback(e.target.value)}
-      />
-    );
-  };
-  const onCellEditComplete = (e) => {
-    let { rowData, newValue, field, originalEvent: event } = e;
-    if (newValue.trim().length > 0) rowData[field] = newValue;
-    else event.preventDefault();
-  };
-
-  const mockMeterId = "";
-
   return (
     <>
       <DataTable value={mydata} editMode="cell">
-        <Column
-          field="firstname"
-          header="First Name"
-          editor={(options) => cellEditor(options)}
-          onCellEditComplete={onCellEditComplete}
-        ></Column>
+        <Column field="firstname" header="First Name"></Column>
         <Column field="lastname" header="Last Name"></Column>
         <Column field="uuid" header="UUID"></Column>
         <Column field="metercount" header="Meter Count"></Column>

@@ -52,16 +52,6 @@ const Hero = () => {
               <Link href="/createreadings">submit</Link>
             </button>
           </div>
-          <div>
-            <p>Readings bearbeiten</p>
-            <button
-              type="submit"
-              className="flex justify-end py-3 px-5 text-sm font-medium text-center text-black rounded-lg bg-indigo-500 sm:w-fit "
-              onClick={async () => {}}
-            >
-              <Link href="/readings">submit</Link>
-            </button>
-          </div>
         </div>
       </div>
 
