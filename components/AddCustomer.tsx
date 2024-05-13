@@ -26,12 +26,19 @@ export default function Form() {
   const errorMessage = (message: string) => {
     return <div>{message}</div>;
   };
+  const sucessfulLoading = (
+    <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+      Customer has been created
+    </div>
+  );
 
   const [firstName, setfirstname] = useState(""); // Initialize the state variable
   const [lastName, setlastname] = useState(""); // Initialize the state variable
-
+  const [success, isSuccessful] = useState(false);
   return (
     <>
+      {success && <h1>{sucessfulLoading}</h1>}
+
       <div className="bg-white dark:bg-gray-900">
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -68,10 +75,12 @@ export default function Form() {
                 type="submit"
                 className="flex justify-end py-3 px-5 text-sm font-medium text-center text-black rounded-lg bg-indigo-500 sm:w-fit "
                 onClick={async () => {
-                  await axios.post("http://localhost:8080/api/customers/", {
-                    firstname: firstName,
-                    lastname: lastName,
-                  });
+                  await axios
+                    .post("http://localhost:8080/api/customers/", {
+                      firstname: firstName,
+                      lastname: lastName,
+                    })
+                    .then(() => isSuccessful(true));
                 }}
               >
                 Submit
