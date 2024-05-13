@@ -28,7 +28,7 @@ const Hero = () => {
         <div>
           <div>
             <div>
-              <p>Lesen Bearbeiten und Löschen</p>
+              <p>Löschen</p>
               <button
                 type="submit"
                 className="flex justify-end py-3 px-5 text-sm font-medium text-center text-black rounded-lg bg-indigo-500 sm:w-fit "
@@ -40,6 +40,31 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <div>
+        <div>
+          <div>
+            <p>Readings bearbeiten</p>
+            <button
+              type="submit"
+              className="flex justify-end py-3 px-5 text-sm font-medium text-center text-black rounded-lg bg-indigo-500 sm:w-fit "
+              onClick={async () => {}}
+            >
+              <Link href="/createreadings">submit</Link>
+            </button>
+          </div>
+          <div>
+            <p>Readings bearbeiten</p>
+            <button
+              type="submit"
+              className="flex justify-end py-3 px-5 text-sm font-medium text-center text-black rounded-lg bg-indigo-500 sm:w-fit "
+              onClick={async () => {}}
+            >
+              <Link href="/readings">submit</Link>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className=" mt-40 flex items-center justify-center text-3xl"></div>
     </>
   );

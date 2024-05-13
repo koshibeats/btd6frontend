@@ -7,39 +7,13 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import LoadCustomers from "./LoadCustomers";
 import { InputText } from "primereact/inputtext";
 
-export default function EditCustomer() {
+export default function EditReadings() {
   const [mydata, setData] = useState([]);
 
   const fetchUserData = async () => {
-    return await axios.get("http://localhost:8080/api/customers");
-    /*  {mydata.map((customer) => (
-          <div>
-            <div className="table-row">{customer.uuid}</div>
-          </div>
-        ))}*/
-  };
+    const { data } = await axios.get("http://localhost:8080/api/readings");
 
-  const fetchReadingData = async (customers) => {
-    console.log(customers);
-    return customers.data.customers.map((c) => {
-      return axios
-        .get("http://localhost:8080/api/readings?customer=" + c.uuid)
-        .then((rs) => {
-          console.log(rs);
-          return rs;
-        })
-        .then((rs) =>
-          rs.data.readings.map((r) => ({
-            uuid: c.uuid,
-            firstname: c.firstname,
-            lastname: c.lastname,
-            metercount: r.metercount,
-            meterid: r.meterid,
-            substitute: r.substitute,
-            comment: r.comment,
-          }))
-        );
-    });
+    setData(data.customers);
     /*  {mydata.map((customer) => (
           <div>
             <div className="table-row">{customer.uuid}</div>
@@ -48,9 +22,7 @@ export default function EditCustomer() {
   };
 
   useEffect(() => {
-    fetchUserData()
-      .then((u) => fetchReadingData(u))
-      .then(setData);
+    fetchUserData();
   }, []);
 
   const onCellEditChange = (options) => (event) => {
